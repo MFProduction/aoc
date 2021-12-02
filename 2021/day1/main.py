@@ -1,7 +1,7 @@
 #!/bin/env python
 file = open('input.txt', 'r')
 lines = file.readlines()
- 
+
 def first_one(lines):
     count = 0
     increment = 0
@@ -19,7 +19,7 @@ def second_one(lines):
     previous_depth = 0
     i = 0
     for line in lines:
-        cd = int(line) 
+        cd = int(line)
         if i+1 >= len(lines):
             cd1 = 0
         else:
@@ -27,7 +27,7 @@ def second_one(lines):
         if i+2 >= len(lines):
             cd2 = 0
         else:
-            cd2 = int(lines[i+2])   
+            cd2 = int(lines[i+2])
 
         sum = cd+cd1+cd2
         if sum > previous_depth and i != 0:

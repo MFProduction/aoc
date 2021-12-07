@@ -9,12 +9,8 @@ rows = cols = 1000
 arr = [[0 for i in range(cols)] for j in range(rows)]
 
 for row in coordinates:
-    x1,y1 = row[0].strip().split(",")
-    x2, y2 = row[1].strip().split(",")
-    x1 = int(x1)
-    x2 = int(x2)
-    y1 = int(y1)
-    y2 = int(y2)
+    x1,y1 = list(map(int,row[0].strip().split(",")))
+    x2, y2 = list(map(int,row[1].strip().split(",")))
     if x1 == x2:
         if y1 > y2:
             for y in range(y2, y1+1):
@@ -38,14 +34,11 @@ for row in coordinates:
                     else:
                         arr[y1+ind][x1+ind] +=1
             else:
-                if x1 > x2:  
+                if x1 > x2:
                     arr[y1+ind][x1-ind] +=1
                 else:
                     arr[y1-ind][x1+ind] +=1
 sum = 0
-
-for r in arr:
-    print(r)
 
 for r in arr:
     for i in r:

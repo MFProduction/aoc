@@ -9,6 +9,10 @@ m = len(lines[0])
 def has_symbol(i,j):
     valid = False
     sym = None
+    # for di in [-1,0,1]:
+        # for dj in [-1,0,1]:
+            # if  0 <= i+di < n and 0 <= j+dj < m:
+            # then do stuff
     for di, dj in [[1, 0], [-1, 0], [0, 1], [0, -1], [1, 1], [1, -1], [-1, 1], [-1, -1]]:
         ii = i + di
         jj = j + dj
@@ -59,3 +63,8 @@ for _,v in stars.items():
 
 print(ans)
 print(ans1)
+
+
+
+# Imprivments
+# n = n*10+int(new_number)

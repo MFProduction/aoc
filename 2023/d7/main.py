@@ -1,35 +1,33 @@
 #!usr/bin/env python
-from collections import defaultdict
+from collections import defaultdict, Counter
 from string import ascii_lowercase, ascii_uppercase
 
 lines = [line.rstrip().split() for line in open(0).readlines()]
 
 def get_type(hand, part):
-    d = defaultdict(int)
-    for key in hand:
-        d[key]+=1
-
+    C = Counter(hand)
+    print(sorted(C.values()))
     if part == 2:
-        J = d.pop("J", 0)
+        J = C.pop("J", 0)
         if J == 5:
             return 7
-        max_value = max(d.values())
+        max_value = max(C.values())
         max_value += J
     else:
-        max_value = max(d.values())
+        max_value = max(C.values())
 
     if max_value == 5:
         return 7
     elif max_value == 4:
         return 6
     elif max_value == 3:
-        mmm = min(d.values())
+        mmm = min(C.values())
         if mmm == 2:
             return 5
         else:
             return 4
     elif max_value == 2:
-        if len(d) == 4:
+        if len(C) == 4:
             return 2
         else:
             return 3

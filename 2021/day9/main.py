@@ -6,13 +6,13 @@ def Convert(string):
 def find_smallest_one(start_value, i, j):
     options = {}
     if i != 0:
-        options.update({input[i-1][j]:[i,j]})
+        options.update({input[i-1][j]:[i-1,j]})
     if j != 0:
-        options.update({input[i][j-1]:[i,j]})
+        options.update({input[i][j-1]:[i,j-1]})
     if i != len(input)-1:
-        options.update({input[i+1][j]:[i,j]})
+        options.update({input[i+1][j]:[i+1,j]})
     if j != len(input[i])-1:
-        options.update({input[i][j+1]:[i,j]})
+        options.update({input[i][j+1]:[i,j+1]})
     option_list = sorted(options)
     smallest = option_list[0]
     if smallest < start_value:
@@ -43,8 +43,6 @@ def find_basins(input, location , visited):
             basin_size += find_basins(input, loc , visited)
     return(basin_size)
 
-input = [Convert(line.strip("\n")) for line in open("input.txt", 'r') if line != "\n"]
-input = [list(map(int, i)) for i in input]
 
 
 def first_one(input):
@@ -64,14 +62,7 @@ def first_one(input):
     b = x[0] * x[1] * x[2]
     return(res, b)
 
+input = [Convert(line.strip("\n")) for line in open("input.txt", 'r') if line != "\n"]
+input = [list(map(int, i)) for i in input]
 
-
-
-
-res, basins = first_one(input)
-print(res)
-print(basins)
-
-
-# for i in input:
-#     print(i)
+print(first_one(input))

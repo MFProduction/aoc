@@ -1,7 +1,7 @@
 #!usr/bin/env python
 import re
 import itertools
-
+import math
 
 class Node:
     def __init__(self, data) -> None:
@@ -78,6 +78,9 @@ for i in itertools.cycle(inst):
     if len(end_nodes) == len(start_nodes):
         break
     steps +=1
+
+# or math.lcm(*list)
+# print(math.lcm(*step_counts))
 
 ans = step_counts.pop()
 for count in step_counts:

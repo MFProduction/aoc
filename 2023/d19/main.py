@@ -41,15 +41,16 @@ for rating in ratings:
         ans+=sum([x,m,a,s])
     print('='*88)
 
-x = m = a = s = 0
-for x in range(0,4000):
-    for m in range(0,4000):
-        for a in range(0,4000):
-            for s in range(0,4000):
-                result = do_workflow(x,m,a,s,'in')
-                if result == "A":
-                    ans1+=sum([x,m,a,s])
-            print(a)
+# not working
+# x = m = a = s = 0
+# for x in range(0,4000):
+#     for m in range(0,4000):
+#         for a in range(0,4000):
+#             for s in range(0,4000):
+#                 result = do_workflow(x,m,a,s,'in')
+#                 if result == "A":
+#                     ans1+=sum([x,m,a,s])
+#             print(a)
 print(ans)
 print(ans1)
 # Good stuff
